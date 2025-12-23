@@ -32,6 +32,10 @@ const Azienda = () => {
           <img
             src={aziendaHero}
             alt="Mont.El - Chi Siamo"
+            title="Mont.El - La Nostra Azienda"
+            loading="eager"
+            width={2500}
+            height={900}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-primary/50" />
@@ -48,6 +52,10 @@ const Azienda = () => {
             <img
               src={aziendaImg}
               alt="Mont.El Azienda"
+              title="Mont.El - Sede di Sale Marasino"
+              loading="lazy"
+              width={600}
+              height={400}
               className="w-full h-auto object-cover hover:scale-105 transition-transform duration-700"
             />
           </div>
@@ -99,6 +107,10 @@ const Azienda = () => {
               <img
                 src={montelGroup}
                 alt="Mont.El Group Network"
+                title="Mont.El Group - Network Produttivo"
+                loading="lazy"
+                width={640}
+                height={360}
                 className="w-full h-full object-cover hover:scale-105 transition-transform duration-700"
               />
             </div>

@@ -43,6 +43,10 @@ const WhySection = () => {
               <img
                 src={driverImage}
                 alt="Driver in vehicle cab"
+                title="Driver in vehicle cab"
+                loading="lazy"
+                width={400}
+                height={533}
                 className="w-full h-full object-cover"
               />
             </div>
@@ -60,6 +64,10 @@ const WhySection = () => {
               <img
                 src={equipmentImage}
                 alt="Equipment on site"
+                title="Equipment on site"
+                loading="lazy"
+                width={400}
+                height={533}
                 className="w-full h-full object-cover"
               />
             </div>

@@ -21,6 +21,10 @@ const CTASection = () => {
             <img
               src={excavatorImage}
               alt="Excavator working on site"
+              title="Excavator on Construction Site"
+              loading="lazy"
+              width={800}
+              height={600}
               className="w-full h-full object-cover rounded-l-xl"
             />
             <div className="absolute inset-0 bg-gradient-to-l from-transparent to-dark-section/20 rounded-l-xl" />

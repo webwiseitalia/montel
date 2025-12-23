@@ -38,10 +38,14 @@ const Footer = () => {
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-4">
-              <Link to="/" className="group inline-block mb-6 hover:opacity-90 transition-opacity">
+              <Link to="/" className="group inline-block mb-6 hover:opacity-90 transition-opacity" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
                 <img
                   src={montelLogo}
                   alt="Mont.El - Electronic Wiring Equipment"
+                  title="Mont.El - Life in a Wire"
+                  loading="lazy"
+                  width={120}
+                  height={40}
                   className="h-10 w-auto"
                 />
               </Link>
@@ -161,6 +165,7 @@ const Footer = () => {
                   <Link
                     key={link.href}
                     to={link.href}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className={`group flex items-center gap-2 transition-colors ${
                       isDark
                         ? "text-white/50 hover:text-white"
@@ -187,6 +192,7 @@ const Footer = () => {
             <div className="flex items-center gap-6">
               <Link
                 to="/privacy"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className={`text-xs transition-colors ${
                   isDark
                     ? "text-white/30 hover:text-white/60"
@@ -197,6 +203,7 @@ const Footer = () => {
               </Link>
               <Link
                 to="/cookie-policy"
+                onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                 className={`text-xs transition-colors ${
                   isDark
                     ? "text-white/30 hover:text-white/60"

@@ -67,6 +67,10 @@ const ProductsGrid = () => {
                   <img
                     src={product.image}
                     alt={product.label}
+                    title={product.label}
+                    loading="lazy"
+                    width={400}
+                    height={300}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   {/* Overlay gradient */}

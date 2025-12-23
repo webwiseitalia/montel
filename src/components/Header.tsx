@@ -87,6 +87,9 @@ const Header = () => {
             <img
               src={montelLogo}
               alt="Mont.El - Electronic Wiring Equipment"
+              title="Mont.El - Life in a Wire"
+              width={120}
+              height={48}
               className="h-10 lg:h-12 w-auto transition-transform duration-300"
             />
           </Link>

@@ -9,6 +9,10 @@ const PlatformSection = () => {
         <img
           src={phoneImage}
           alt="T3 mobile app"
+          title="T3 Mobile Application"
+          loading="lazy"
+          width={1920}
+          height={1080}
           className="w-full h-full object-cover"
         />
         <div className="absolute inset-0 bg-gradient-to-r from-hero-overlay/90 via-hero-overlay/60 to-transparent" />
