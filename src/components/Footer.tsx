@@ -1,83 +1,83 @@
 import { Link } from "react-router-dom";
-import { Phone, Mail, MapPin, Globe, ArrowUpRight, Printer, FileDown } from "lucide-react";
-import abLogo from "@/assets/ablogo.png";
-import abLogoNero from "@/assets/ablogonero.png";
-import catalogoPdf from "@/assets/catalogo-ITA-2018.04-AB-trasformatori-Italy-ver5.pdf";
-import MapSection from "./MapSection";
+import { Phone, Mail, MapPin, ArrowUpRight } from "lucide-react";
 import { useTheme } from "@/context/ThemeContext";
+import montelLogo from "@/assets/montel_logo.webp";
 
 const Footer = () => {
   const { isDark } = useTheme();
 
   const navLinks = [
-    { label: "Prodotti", href: "/prodotti" },
+    { label: "Home", href: "/" },
     { label: "Azienda", href: "/azienda" },
-    { label: "Certificati", href: "/certificati" },
-    { label: "Guida Tecnica", href: "/guida-tecnica" },
+    { label: "Prodotti", href: "/prodotti" },
+    { label: "Settori", href: "/settori" },
+    { label: "Qualità", href: "/qualita" },
+    { label: "Servizi", href: "/servizi" },
+    { label: "Case History", href: "/case-history" },
+    { label: "Sostenibilità", href: "/sostenibilita" },
     { label: "Contatti", href: "/contatti" },
-    { label: "Indice", href: "/indice" },
+  ];
+
+  const legalLinks = [
+    { label: "Cookie Policy", href: "/cookie-policy" },
+    { label: "GDPR / Privacy", href: "/privacy" },
+    { label: "Condizioni generali di acquisto", href: "/condizioni-acquisto" },
+    { label: "Condizioni generali di fornitura", href: "/condizioni-fornitura" },
+    { label: "Etichettatura ambientale", href: "/sostenibilita/etichettatura-ambientale" },
+    { label: "Whistleblowing", href: "/whistleblowing" },
   ];
 
   return (
-    <>
-      {/* Map Section */}
-      <MapSection />
+    <footer className={`relative ${isDark ? "bg-black" : "bg-neutral-100"}`}>
+      {/* Top accent line */}
+      <div className="h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
 
-      <footer className={`relative ${isDark ? "bg-black" : "bg-neutral-100"}`}>
-        {/* Top accent line */}
-        <div className="h-px bg-gradient-to-r from-transparent via-accent to-transparent" />
-
-        {/* Main Footer */}
-        <div className="py-16 lg:py-20">
+      {/* Main Footer */}
+      <div className="py-16 lg:py-20">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid lg:grid-cols-12 gap-12 lg:gap-8">
             {/* Brand Column */}
             <div className="lg:col-span-4">
-              <Link to="/" className="group inline-block mb-6">
+              <Link to="/" className="group inline-block mb-6 hover:opacity-90 transition-opacity">
                 <img
-                  src={isDark ? abLogo : abLogoNero}
-                  alt="AB Trasformatori Logo"
-                  className="h-12 w-auto -ml-[30px]"
+                  src={montelLogo}
+                  alt="Mont.El - Electronic Wiring Equipment"
+                  className="h-10 w-auto"
                 />
               </Link>
               <p className={`text-sm leading-relaxed mb-6 max-w-sm ${isDark ? "text-white/50" : "text-black/50"}`}>
-                Produzione trasformatori elettromeccanici ed elettrici dal 1975.
-                Azienda certificata UL5085, ENEC05, EAC.
+                Dal 1972 progettiamo e produciamo sensori di livello carburante, cablaggi elettrici, quadri elettrici e sonde di temperatura per i più esigenti settori industriali.
               </p>
-              {/* Certifications badges */}
-              <div className="flex gap-3 mb-6">
-                {["UL5085", "ENEC05", "EAC"].map((cert) => (
-                  <span
-                    key={cert}
-                    className={`px-3 py-1 border text-xs font-medium ${
-                      isDark
-                        ? "bg-white/5 border-white/10 text-white/60"
-                        : "bg-black/5 border-black/10 text-black/60"
-                    }`}
-                  >
-                    {cert}
-                  </span>
-                ))}
+              {/* Contact Info */}
+              <div className="space-y-3">
+                <a
+                  href="tel:+39030986300"
+                  className={`flex items-center gap-3 hover:text-accent transition-colors ${
+                    isDark ? "text-white/50" : "text-black/50"
+                  }`}
+                >
+                  <Phone className="w-4 h-4" />
+                  <span className="text-sm">+39 030 986300</span>
+                </a>
+                <a
+                  href="mailto:info@montel.it"
+                  className={`flex items-center gap-3 hover:text-accent transition-colors ${
+                    isDark ? "text-white/50" : "text-black/50"
+                  }`}
+                >
+                  <Mail className="w-4 h-4" />
+                  <span className="text-sm">info@montel.it</span>
+                </a>
+                <div className={`flex items-center gap-3 ${isDark ? "text-white/50" : "text-black/50"}`}>
+                  <MapPin className="w-4 h-4" />
+                  <span className="text-sm">Via Mazzini, 31/B - 25057 Sale Marasino (BS)</span>
+                </div>
               </div>
-              {/* Download Catalogo */}
-              <a
-                href={catalogoPdf}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 px-4 py-2 border text-sm font-medium transition-colors hover:border-accent hover:text-accent ${
-                  isDark
-                    ? "border-white/20 text-white/70"
-                    : "border-black/20 text-black/70"
-                }`}
-              >
-                <FileDown className="w-4 h-4" />
-                Scarica Catalogo PDF
-              </a>
             </div>
 
-            {/* Links Column */}
+            {/* Navigation Column */}
             <div className="lg:col-span-2">
-              <h4 className="text-accent text-xs uppercase tracking-wider font-medium mb-6">
+              <h4 className="text-primary text-xs uppercase tracking-wider font-medium mb-6">
                 Navigazione
               </h4>
               <nav className="space-y-3">
@@ -98,71 +98,80 @@ const Footer = () => {
               </nav>
             </div>
 
-            {/* Italy Office */}
+            {/* Products Column */}
             <div className="lg:col-span-3">
-              <h4 className="text-accent text-xs uppercase tracking-wider font-medium mb-6 flex items-center gap-2">
-                <MapPin className="w-4 h-4" />
-                Sede Italia
+              <h4 className="text-primary text-xs uppercase tracking-wider font-medium mb-6">
+                Prodotti
               </h4>
-              <address className={`not-italic text-sm space-y-2 ${isDark ? "text-white/50" : "text-black/50"}`}>
-                <p className={isDark ? "text-white/70" : "text-black/70"}>Via Piantada, 6</p>
-                <p>25036 Palazzolo S/O (BS)</p>
-                <p className={`pt-3 text-xs ${isDark ? "text-white/40" : "text-black/40"}`}>P.I. e C.F. 02511620987</p>
-              </address>
-              <div className="mt-6 space-y-2">
-                <a
-                  href="tel:+390307300444"
-                  className={`flex items-center gap-3 hover:text-accent transition-colors ${
-                    isDark ? "text-white/50" : "text-black/50"
+              <nav className="space-y-3">
+                <Link
+                  to="/prodotti/sensori-livello-carburante"
+                  className={`group flex items-center gap-2 transition-colors ${
+                    isDark
+                      ? "text-white/50 hover:text-white"
+                      : "text-black/50 hover:text-black"
                   }`}
                 >
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm">+39 030 7300444</span>
-                </a>
-                <div className={`flex items-center gap-3 ${isDark ? "text-white/50" : "text-black/50"}`}>
-                  <Printer className="w-4 h-4" />
-                  <span className="text-sm">+39 030 7400902</span>
-                </div>
-                <a
-                  href="mailto:info@abtrasformatori.it"
-                  className={`flex items-center gap-3 hover:text-accent transition-colors ${
-                    isDark ? "text-white/50" : "text-black/50"
+                  <span className="text-sm">Sensori di livello carburante</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  to="/prodotti/cablaggi-elettrici"
+                  className={`group flex items-center gap-2 transition-colors ${
+                    isDark
+                      ? "text-white/50 hover:text-white"
+                      : "text-black/50 hover:text-black"
                   }`}
                 >
-                  <Mail className="w-4 h-4" />
-                  <span className="text-sm">info@abtrasformatori.it</span>
-                </a>
-              </div>
+                  <span className="text-sm">Cablaggi elettrici</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  to="/prodotti/quadri-elettrici"
+                  className={`group flex items-center gap-2 transition-colors ${
+                    isDark
+                      ? "text-white/50 hover:text-white"
+                      : "text-black/50 hover:text-black"
+                  }`}
+                >
+                  <span className="text-sm">Quadri elettrici</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+                <Link
+                  to="/prodotti/sonde-temperatura"
+                  className={`group flex items-center gap-2 transition-colors ${
+                    isDark
+                      ? "text-white/50 hover:text-white"
+                      : "text-black/50 hover:text-black"
+                  }`}
+                >
+                  <span className="text-sm">Sonde di temperatura</span>
+                  <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                </Link>
+              </nav>
             </div>
 
-            {/* UAE Office */}
+            {/* Legal Column */}
             <div className="lg:col-span-3">
-              <h4 className="text-accent text-xs uppercase tracking-wider font-medium mb-6 flex items-center gap-2">
-                <Globe className="w-4 h-4" />
-                Emirati Arabi
+              <h4 className="text-primary text-xs uppercase tracking-wider font-medium mb-6">
+                Documentazione
               </h4>
-              <address className={`not-italic text-sm space-y-4 ${isDark ? "text-white/50" : "text-black/50"}`}>
-                <div>
-                  <p className={`font-medium ${isDark ? "text-white/70" : "text-black/70"}`}>Dubai</p>
-                  <p className="text-xs">48 Burj Gate, 10th Floor, room #1001</p>
-                  <p className="text-xs">Downtown</p>
-                </div>
-                <div>
-                  <p className={`font-medium ${isDark ? "text-white/70" : "text-black/70"}`}>Abu Dhabi</p>
-                  <p className="text-xs">7th Floor – CI Tower – Khalidiya Area</p>
-                </div>
-              </address>
-              <div className="mt-6">
-                <a
-                  href="tel:+97143216260"
-                  className={`flex items-center gap-3 hover:text-accent transition-colors ${
-                    isDark ? "text-white/50" : "text-black/50"
-                  }`}
-                >
-                  <Phone className="w-4 h-4" />
-                  <span className="text-sm">+971 4 321 62 60</span>
-                </a>
-              </div>
+              <nav className="space-y-3">
+                {legalLinks.map((link) => (
+                  <Link
+                    key={link.href}
+                    to={link.href}
+                    className={`group flex items-center gap-2 transition-colors ${
+                      isDark
+                        ? "text-white/50 hover:text-white"
+                        : "text-black/50 hover:text-black"
+                    }`}
+                  >
+                    <span className="text-sm">{link.label}</span>
+                    <ArrowUpRight className="w-3 h-3 opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </Link>
+                ))}
+              </nav>
             </div>
           </div>
         </div>
@@ -173,11 +182,11 @@ const Footer = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-6">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className={`text-xs ${isDark ? "text-white/30" : "text-black/30"}`}>
-              © {new Date().getFullYear()} AB Trasformatori srl. Tutti i diritti riservati.
+              © {new Date().getFullYear()} Mont.El Apparecchiature Elettroelettroniche S.r.l. - P.IVA 10695790153. Tutti i diritti riservati.
             </p>
             <div className="flex items-center gap-6">
-              <a
-                href="#"
+              <Link
+                to="/privacy"
                 className={`text-xs transition-colors ${
                   isDark
                     ? "text-white/30 hover:text-white/60"
@@ -185,9 +194,9 @@ const Footer = () => {
                 }`}
               >
                 Privacy Policy
-              </a>
-              <a
-                href="#"
+              </Link>
+              <Link
+                to="/cookie-policy"
                 className={`text-xs transition-colors ${
                   isDark
                     ? "text-white/30 hover:text-white/60"
@@ -195,13 +204,12 @@ const Footer = () => {
                 }`}
               >
                 Cookie Policy
-              </a>
+              </Link>
             </div>
           </div>
         </div>
       </div>
-      </footer>
-    </>
+    </footer>
   );
 };
 

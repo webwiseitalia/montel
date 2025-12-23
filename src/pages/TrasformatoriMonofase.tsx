@@ -147,6 +147,10 @@ const TrasformatoriMonofase = () => {
                         <img
                           src={category.image}
                           alt={category.title}
+                          title={category.title}
+                          loading="lazy"
+                          width={256}
+                          height={256}
                           className="w-full h-full object-contain p-4"
                         />
                       </div>
@@ -202,6 +206,10 @@ const TrasformatoriMonofase = () => {
                                 <img
                                   src={product.image}
                                   alt={product.name}
+                                  title={product.name}
+                                  loading="lazy"
+                                  width={300}
+                                  height={300}
                                   className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                                 />
                               </a>
@@ -210,6 +218,10 @@ const TrasformatoriMonofase = () => {
                                 <img
                                   src={product.image}
                                   alt={product.name}
+                                  title={product.name}
+                                  loading="lazy"
+                                  width={300}
+                                  height={300}
                                   className="w-full h-full object-contain p-4 group-hover:scale-105 transition-transform duration-500"
                                 />
                               </div>

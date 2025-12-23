@@ -128,6 +128,10 @@ const Certificati = () => {
                               <img
                                 src={image.src}
                                 alt={image.alt}
+                                title={image.alt}
+                                loading="lazy"
+                                width={320}
+                                height={320}
                                 className="max-h-80 w-auto object-contain"
                               />
                             </a>
@@ -139,6 +143,10 @@ const Certificati = () => {
                               <img
                                 src={image.src}
                                 alt={image.alt}
+                                title={image.alt}
+                                loading="lazy"
+                                width={320}
+                                height={320}
                                 className="max-h-80 w-auto object-contain"
                               />
                             </div>
