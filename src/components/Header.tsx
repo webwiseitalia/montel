@@ -67,35 +67,30 @@ const Header = () => {
 
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        showSolidBg
-          ? isDark
-            ? "bg-black/95 backdrop-blur-xl border-b border-white/10 shadow-lg shadow-black/20"
-            : "bg-white/95 backdrop-blur-xl border-b border-black/5 shadow-lg shadow-black/5"
-          : isDark
-            ? "bg-black/30 backdrop-blur-md"
-            : "bg-white/30 backdrop-blur-md"
-      }`}
+      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/10"
     >
       {/* Tech accent line */}
       <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary" />
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      {/* Full width navbar container */}
+      <div className="w-full px-4 lg:px-8">
         <div className="flex items-center justify-between h-20 lg:h-24">
-          {/* Logo */}
-          <Link to="/" className="group flex items-center gap-3 transition-all hover:scale-[1.02]">
+          {/* Logo a sinistra - senza sfondo */}
+          <Link
+            to="/"
+            className="flex-shrink-0 group flex items-center transition-all hover:scale-[1.02]"
+          >
             <img
               src={montelLogo}
               alt="Mont.El - Electronic Wiring Equipment"
               title="Mont.El - Life in a Wire"
-              width={120}
-              height={48}
-              className="h-10 lg:h-12 w-auto transition-transform duration-300"
+              width={180}
+              height={72}
+              className="h-12 lg:h-16 w-auto transition-transform duration-300 drop-shadow-md"
             />
           </Link>
-
           {/* Desktop Navigation */}
-          <nav className="hidden xl:flex items-center gap-2">
+          <nav className="hidden xl:flex items-center gap-1">
             {navLinks.map((link) => {
               const isActive = location.pathname === link.href ||
                 (link.submenu && link.submenu.some(sub => location.pathname === sub.href));
@@ -104,24 +99,20 @@ const Header = () => {
                 <div key={link.href} className="relative group">
                   <Link
                     to={link.href}
-                    className="relative px-4 py-3 flex items-center gap-1.5"
+                    className="relative px-3 py-3 flex items-center gap-1"
                   >
-                    <span className={`text-sm uppercase tracking-wide font-medium transition-colors ${
+                    <span className={`text-sm uppercase tracking-wide font-semibold transition-colors ${
                       isActive
                         ? "text-primary"
-                        : isDark
-                          ? "text-white/70 group-hover:text-white"
-                          : "text-black/70 group-hover:text-black"
+                        : "text-gray-800 group-hover:text-primary"
                     }`}>
                       {link.label}
                     </span>
                     {link.submenu && (
-                      <ChevronDown className={`w-4 h-4 transition-transform group-hover:rotate-180 ${
-                        isDark ? "text-white/50" : "text-black/50"
-                      }`} />
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-600" />
                     )}
                     <div
-                      className={`absolute bottom-0 left-4 right-4 h-[2px] bg-primary transition-transform origin-left ${
+                      className={`absolute bottom-0 left-3 right-3 h-[2px] bg-primary transition-transform origin-left ${
                         isActive ? "scale-x-100" : "scale-x-0 group-hover:scale-x-100"
                       }`}
                     />
@@ -129,13 +120,9 @@ const Header = () => {
 
                   {/* Desktop Submenu */}
                   {link.submenu && (
-                    <div className={`absolute top-full left-0 min-w-[260px] py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 ${
-                      isDark
-                        ? "bg-black/95 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/50"
-                        : "bg-white/95 backdrop-blur-xl border border-black/5 shadow-2xl shadow-black/10"
-                    }`}>
+                    <div className="absolute top-full left-0 min-w-[260px] py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl shadow-black/10 rounded-lg">
                       {/* Submenu accent */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent" />
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent rounded-t-lg" />
                       {link.submenu.map((sub, subIndex) => (
                         <Link
                           key={sub.href}
@@ -143,9 +130,7 @@ const Header = () => {
                           className={`group/sub relative block px-5 py-2.5 text-sm transition-all ${
                             location.pathname === sub.href
                               ? "text-primary bg-primary/10"
-                              : isDark
-                                ? "text-white/70 hover:text-white hover:bg-white/5 hover:pl-7"
-                                : "text-black/70 hover:text-black hover:bg-black/5 hover:pl-7"
+                              : "text-gray-700 hover:text-primary hover:bg-gray-100 hover:pl-7"
                           }`}
                           style={{ transitionDelay: `${subIndex * 30}ms` }}
                         >
@@ -164,28 +149,24 @@ const Header = () => {
           <div className="hidden xl:flex items-center gap-4">
             {/* Language Selector */}
             <div className="flex items-center gap-1">
-              <Globe className={`w-4 h-4 ${isDark ? "text-white/50" : "text-black/50"}`} />
+              <Globe className="w-4 h-4 text-gray-500" />
               <button
                 onClick={() => setCurrentLang("IT")}
                 className={`px-2 py-1 text-xs font-medium transition-colors ${
                   currentLang === "IT"
                     ? "text-primary"
-                    : isDark
-                      ? "text-white/50 hover:text-white"
-                      : "text-black/50 hover:text-black"
+                    : "text-gray-500 hover:text-gray-800"
                 }`}
               >
                 IT
               </button>
-              <span className={isDark ? "text-white/30" : "text-black/30"}>/</span>
+              <span className="text-gray-400">/</span>
               <button
                 onClick={() => setCurrentLang("EN")}
                 className={`px-2 py-1 text-xs font-medium transition-colors ${
                   currentLang === "EN"
                     ? "text-primary"
-                    : isDark
-                      ? "text-white/50 hover:text-white"
-                      : "text-black/50 hover:text-black"
+                    : "text-gray-500 hover:text-gray-800"
                 }`}
               >
                 EN
@@ -196,7 +177,7 @@ const Header = () => {
             <div className="hover:scale-[1.03] active:scale-[0.97] transition-transform">
               <Link
                 to="/contatti"
-                className="relative inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold text-xs uppercase tracking-wider overflow-hidden group shadow-lg shadow-accent/30 hover:shadow-accent/50 transition-all"
+                className="relative inline-flex items-center gap-2 px-6 py-3 bg-accent text-white font-bold text-xs uppercase tracking-wider overflow-hidden group shadow-lg shadow-accent/30 hover:shadow-accent/50 transition-all rounded-md"
               >
                 <span className="relative z-10">Richiedi informazioni</span>
                 <div className="absolute inset-0 bg-gradient-to-r from-white/0 via-white/20 to-white/0 translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-500" />
@@ -208,11 +189,7 @@ const Header = () => {
           <div className="xl:hidden flex items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2.5 relative active:scale-90 transition-all rounded-lg ${
-                isDark
-                  ? "text-white hover:bg-white/10"
-                  : "text-black hover:bg-black/5"
-              } ${isMobileMenuOpen ? "bg-primary/10" : ""}`}
+              className={`p-2.5 relative active:scale-90 transition-all rounded-lg text-gray-800 hover:bg-gray-100 ${isMobileMenuOpen ? "bg-primary/10" : ""}`}
               aria-label="Menu"
             >
               <div className="relative w-6 h-6">
@@ -229,14 +206,13 @@ const Header = () => {
             </button>
           </div>
         </div>
+      </div>
 
-        {/* Mobile Menu */}
-        <div
-          className={`xl:hidden overflow-hidden border-t max-h-[70vh] overflow-y-auto transition-all duration-500 ${
-            isDark ? "border-white/10" : "border-black/10"
-          } ${isMobileMenuOpen ? "opacity-100" : "opacity-0 max-h-0"}`}
-          style={{ display: isMobileMenuOpen ? 'block' : 'none' }}
-        >
+      {/* Mobile Menu */}
+      <div
+        className={`xl:hidden overflow-hidden border-t border-gray-200 max-h-[70vh] overflow-y-auto transition-all duration-500 bg-white/95 backdrop-blur-xl ${isMobileMenuOpen ? "opacity-100" : "opacity-0 max-h-0"}`}
+        style={{ display: isMobileMenuOpen ? 'block' : 'none' }}
+      >
           <nav className="flex flex-col py-4 gap-1">
               {navLinks.map((link) => {
                 const isActive = location.pathname === link.href;
@@ -251,9 +227,7 @@ const Header = () => {
                         className={`flex-1 py-3 px-4 text-sm uppercase tracking-wider font-medium transition-colors ${
                           isActive
                             ? "text-primary bg-primary/10 border-l-2 border-primary"
-                            : isDark
-                              ? "text-white/70 hover:text-white hover:bg-white/5"
-                              : "text-black/70 hover:text-black hover:bg-black/5"
+                            : "text-gray-700 hover:text-primary hover:bg-gray-100"
                         }`}
                         onClick={() => !hasSubmenu && setIsMobileMenuOpen(false)}
                       >
@@ -262,7 +236,7 @@ const Header = () => {
                       {hasSubmenu && (
                         <button
                           onClick={() => toggleSubmenu(link.label)}
-                          className={`p-3 ${isDark ? "text-white/50" : "text-black/50"}`}
+                          className="p-3 text-gray-500"
                         >
                           <ChevronDown className={`w-5 h-5 transition-transform ${isSubmenuOpen ? "rotate-180" : ""}`} />
                         </button>
@@ -271,7 +245,7 @@ const Header = () => {
 
                     {/* Mobile Submenu */}
                     {hasSubmenu && isSubmenuOpen && (
-                      <div className={`pl-4 ${isDark ? "bg-white/5" : "bg-black/5"}`}>
+                      <div className="pl-4 bg-gray-50">
                         {link.submenu!.map((sub) => (
                           <Link
                             key={sub.href}
@@ -279,9 +253,7 @@ const Header = () => {
                             className={`block py-2.5 px-4 text-sm transition-colors ${
                               location.pathname === sub.href
                                 ? "text-primary"
-                                : isDark
-                                  ? "text-white/60 hover:text-white"
-                                  : "text-black/60 hover:text-black"
+                                : "text-gray-600 hover:text-primary"
                             }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
@@ -295,28 +267,24 @@ const Header = () => {
               })}
 
               {/* Mobile Language Selector */}
-              <div className={`flex items-center gap-2 px-4 py-3 mt-2 border-t ${isDark ? "border-white/10" : "border-black/10"}`}>
-                <Globe className={`w-4 h-4 ${isDark ? "text-white/50" : "text-black/50"}`} />
+              <div className="flex items-center gap-2 px-4 py-3 mt-2 border-t border-gray-200">
+                <Globe className="w-4 h-4 text-gray-500" />
                 <button
                   onClick={() => setCurrentLang("IT")}
-                  className={`px-3 py-1 text-sm font-medium ${
+                  className={`px-3 py-1 text-sm font-medium rounded ${
                     currentLang === "IT"
                       ? "text-primary bg-primary/10"
-                      : isDark
-                        ? "text-white/50"
-                        : "text-black/50"
+                      : "text-gray-500"
                   }`}
                 >
                   IT
                 </button>
                 <button
                   onClick={() => setCurrentLang("EN")}
-                  className={`px-3 py-1 text-sm font-medium ${
+                  className={`px-3 py-1 text-sm font-medium rounded ${
                     currentLang === "EN"
                       ? "text-primary bg-primary/10"
-                      : isDark
-                        ? "text-white/50"
-                        : "text-black/50"
+                      : "text-gray-500"
                   }`}
                 >
                   EN
@@ -335,7 +303,6 @@ const Header = () => {
                 </Link>
               </div>
             </nav>
-        </div>
       </div>
     </header>
   );
