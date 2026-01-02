@@ -161,35 +161,32 @@ const Index = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-32">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-48">
             <div className="max-w-4xl">
               {/* Badge */}
-              <div className="hero-title mb-8">
-                <span className="hero-title-inner hero-stagger-1 inline-block px-5 py-2.5 text-xs font-bold tracking-[0.2em] uppercase bg-white/10 text-white border border-white/20 backdrop-blur-sm">
+              <div className="hero-title mb-5 flex">
+                <span className="hero-title-inner hero-stagger-1 inline-block px-3 py-1.5 text-[10px] font-bold tracking-[0.1em] uppercase text-white/90 border border-white/20 rounded-full backdrop-blur-sm bg-white/5 whitespace-nowrap">
                   Dal 1972 • Eccellenza Italiana
                 </span>
               </div>
 
               {/* Main Title */}
-              <h1 className="mb-8">
-                <span className="hero-title block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[0.9] tracking-tighter">
-                  <span className="hero-title-inner hero-stagger-2">Life in</span>
-                </span>
-                <span className="hero-title block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black leading-[0.9] tracking-tighter">
-                  <span className="hero-title-inner hero-stagger-3 text-gradient-animated">a Wire</span>
+              <h1 className="hero-title mb-5">
+                <span className="hero-title-inner hero-stagger-2 block text-6xl md:text-7xl lg:text-8xl xl:text-9xl font-black text-white leading-[1] tracking-tight">
+                  Life in a Wire
                 </span>
               </h1>
 
               {/* Subtitle */}
-              <div className="hero-title mb-12">
-                <p className="hero-title-inner hero-stagger-4 text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl">
+              <div className="hero-title mb-8">
+                <p className="hero-title-inner hero-stagger-3 text-xl md:text-2xl text-white/60 leading-relaxed max-w-2xl">
                   Progettiamo e produciamo sensori, cablaggi elettrici, quadri elettrici e sonde di temperatura per i settori industriali più esigenti.
                 </p>
               </div>
 
               {/* CTA Buttons */}
               <div className="hero-title">
-                <div className="hero-title-inner hero-stagger-5 flex flex-wrap gap-5">
+                <div className="hero-title-inner hero-stagger-4 flex flex-wrap gap-4">
                   <Link
                     to="/contatti"
                     className="group relative inline-flex items-center gap-3 px-8 py-4 bg-white text-black font-bold text-sm uppercase tracking-wider overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
@@ -214,7 +211,7 @@ const Index = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-32 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <div className="absolute bottom-36 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
             <span className="text-white/40 text-xs uppercase tracking-widest">Scroll</span>
             <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-8 bg-white animate-[slideDown_1.5s_ease-in-out_infinite]" />

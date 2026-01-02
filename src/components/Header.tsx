@@ -67,10 +67,12 @@ const Header = () => {
 
   return (
     <header
-      className="fixed top-0 left-0 right-0 z-50 transition-all duration-500 bg-white/70 backdrop-blur-xl border-b border-white/20 shadow-lg shadow-black/10"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 glass-dark border-b border-white/10 ${
+        isScrolled ? "shadow-[0_8px_32px_rgba(0,0,0,0.3)]" : ""
+      }`}
     >
       {/* Tech accent line */}
-      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary" />
+      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary via-accent to-primary opacity-90" />
 
       {/* Full width navbar container */}
       <div className="w-full px-4 lg:px-8">
@@ -103,13 +105,13 @@ const Header = () => {
                   >
                     <span className={`text-sm uppercase tracking-wide font-semibold transition-colors ${
                       isActive
-                        ? "text-primary"
-                        : "text-gray-800 group-hover:text-primary"
+                        ? "text-white"
+                        : "text-white/70 group-hover:text-white"
                     }`}>
                       {link.label}
                     </span>
                     {link.submenu && (
-                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-gray-600" />
+                      <ChevronDown className="w-4 h-4 transition-transform group-hover:rotate-180 text-white/50" />
                     )}
                     <div
                       className={`absolute bottom-0 left-3 right-3 h-[2px] bg-primary transition-transform origin-left ${
@@ -120,21 +122,21 @@ const Header = () => {
 
                   {/* Desktop Submenu */}
                   {link.submenu && (
-                    <div className="absolute top-full left-0 min-w-[260px] py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 bg-white/90 backdrop-blur-xl border border-gray-200 shadow-2xl shadow-black/10 rounded-lg">
+                    <div className="absolute top-full left-0 min-w-[260px] py-3 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 translate-y-2 group-hover:translate-y-0 glass-dark border border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.3)] rounded-lg overflow-hidden">
                       {/* Submenu accent */}
-                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent rounded-t-lg" />
+                      <div className="absolute top-0 left-0 right-0 h-[2px] bg-gradient-to-r from-primary to-accent" />
                       {link.submenu.map((sub, subIndex) => (
                         <Link
                           key={sub.href}
                           to={sub.href}
-                          className={`group/sub relative block px-5 py-2.5 text-sm transition-all ${
+                          className={`group/sub relative block px-5 py-3 text-sm font-medium transition-all z-10 ${
                             location.pathname === sub.href
-                              ? "text-primary bg-primary/10"
-                              : "text-gray-700 hover:text-primary hover:bg-gray-100 hover:pl-7"
+                              ? "text-white bg-white/10"
+                              : "text-white/70 hover:text-white hover:bg-white/10 hover:pl-7"
                           }`}
                           style={{ transitionDelay: `${subIndex * 30}ms` }}
                         >
-                          <span className="absolute left-2 top-1/2 -translate-y-1/2 w-0 h-[2px] bg-primary transition-all group-hover/sub:w-2" />
+                          <span className="absolute left-2 top-1/2 -translate-y-1/2 w-0 h-[2px] bg-accent transition-all group-hover/sub:w-2" />
                           {sub.label}
                         </Link>
                       ))}
@@ -149,24 +151,24 @@ const Header = () => {
           <div className="hidden xl:flex items-center gap-4">
             {/* Language Selector */}
             <div className="flex items-center gap-1">
-              <Globe className="w-4 h-4 text-gray-500" />
+              <Globe className="w-4 h-4 text-white/50" />
               <button
                 onClick={() => setCurrentLang("IT")}
                 className={`px-2 py-1 text-xs font-medium transition-colors ${
                   currentLang === "IT"
-                    ? "text-primary"
-                    : "text-gray-500 hover:text-gray-800"
+                    ? "text-white"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 IT
               </button>
-              <span className="text-gray-400">/</span>
+              <span className="text-white/30">/</span>
               <button
                 onClick={() => setCurrentLang("EN")}
                 className={`px-2 py-1 text-xs font-medium transition-colors ${
                   currentLang === "EN"
-                    ? "text-primary"
-                    : "text-gray-500 hover:text-gray-800"
+                    ? "text-white"
+                    : "text-white/50 hover:text-white"
                 }`}
               >
                 EN
@@ -189,7 +191,7 @@ const Header = () => {
           <div className="xl:hidden flex items-center gap-2">
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-              className={`p-2.5 relative active:scale-90 transition-all rounded-lg text-gray-800 hover:bg-gray-100 ${isMobileMenuOpen ? "bg-primary/10" : ""}`}
+              className={`p-2.5 relative active:scale-90 transition-all rounded-lg text-white hover:bg-white/10 ${isMobileMenuOpen ? "bg-white/10" : ""}`}
               aria-label="Menu"
             >
               <div className="relative w-6 h-6">
@@ -210,7 +212,7 @@ const Header = () => {
 
       {/* Mobile Menu */}
       <div
-        className={`xl:hidden overflow-hidden border-t border-gray-200 max-h-[70vh] overflow-y-auto transition-all duration-500 bg-white/95 backdrop-blur-xl ${isMobileMenuOpen ? "opacity-100" : "opacity-0 max-h-0"}`}
+        className={`xl:hidden overflow-hidden border-t border-white/10 max-h-[70vh] overflow-y-auto transition-all duration-500 glass-dark ${isMobileMenuOpen ? "opacity-100" : "opacity-0 max-h-0"}`}
         style={{ display: isMobileMenuOpen ? 'block' : 'none' }}
       >
           <nav className="flex flex-col py-4 gap-1">
@@ -224,10 +226,10 @@ const Header = () => {
                     <div className="flex items-center">
                       <Link
                         to={link.href}
-                        className={`flex-1 py-3 px-4 text-sm uppercase tracking-wider font-medium transition-colors ${
+                        className={`flex-1 py-3 px-4 text-sm uppercase tracking-wider font-semibold transition-colors ${
                           isActive
-                            ? "text-primary bg-primary/10 border-l-2 border-primary"
-                            : "text-gray-700 hover:text-primary hover:bg-gray-100"
+                            ? "text-white bg-white/10 border-l-2 border-accent"
+                            : "text-white/70 hover:text-white hover:bg-white/10"
                         }`}
                         onClick={() => !hasSubmenu && setIsMobileMenuOpen(false)}
                       >
@@ -236,7 +238,7 @@ const Header = () => {
                       {hasSubmenu && (
                         <button
                           onClick={() => toggleSubmenu(link.label)}
-                          className="p-3 text-gray-500"
+                          className="p-3 text-white/50"
                         >
                           <ChevronDown className={`w-5 h-5 transition-transform ${isSubmenuOpen ? "rotate-180" : ""}`} />
                         </button>
@@ -245,15 +247,15 @@ const Header = () => {
 
                     {/* Mobile Submenu */}
                     {hasSubmenu && isSubmenuOpen && (
-                      <div className="pl-4 bg-gray-50">
+                      <div className="pl-4 bg-white/5">
                         {link.submenu!.map((sub) => (
                           <Link
                             key={sub.href}
                             to={sub.href}
-                            className={`block py-2.5 px-4 text-sm transition-colors ${
+                            className={`block py-2.5 px-4 text-sm font-medium transition-colors ${
                               location.pathname === sub.href
-                                ? "text-primary"
-                                : "text-gray-600 hover:text-primary"
+                                ? "text-white"
+                                : "text-white/60 hover:text-white"
                             }`}
                             onClick={() => setIsMobileMenuOpen(false)}
                           >
@@ -267,14 +269,14 @@ const Header = () => {
               })}
 
               {/* Mobile Language Selector */}
-              <div className="flex items-center gap-2 px-4 py-3 mt-2 border-t border-gray-200">
-                <Globe className="w-4 h-4 text-gray-500" />
+              <div className="flex items-center gap-2 px-4 py-3 mt-2 border-t border-white/10">
+                <Globe className="w-4 h-4 text-white/50" />
                 <button
                   onClick={() => setCurrentLang("IT")}
                   className={`px-3 py-1 text-sm font-medium rounded ${
                     currentLang === "IT"
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-500"
+                      ? "text-white bg-white/10"
+                      : "text-white/50"
                   }`}
                 >
                   IT
@@ -283,8 +285,8 @@ const Header = () => {
                   onClick={() => setCurrentLang("EN")}
                   className={`px-3 py-1 text-sm font-medium rounded ${
                     currentLang === "EN"
-                      ? "text-primary bg-primary/10"
-                      : "text-gray-500"
+                      ? "text-white bg-white/10"
+                      : "text-white/50"
                   }`}
                 >
                   EN
