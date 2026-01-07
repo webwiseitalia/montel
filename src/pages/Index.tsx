@@ -148,6 +148,7 @@ const Index = () => {
                 title="Mont.El - Life in a Wire - Componenti Elettrici dal 1972"
                 width={2500}
                 height={1503}
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
             </div>

@@ -88,6 +88,7 @@ const Header = () => {
               title="Mont.El - Life in a Wire"
               width={180}
               height={72}
+              loading="lazy"
               className="h-12 lg:h-16 w-auto transition-transform duration-300 drop-shadow-md"
             />
           </Link>

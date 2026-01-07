@@ -89,6 +89,7 @@ const Footer = () => {
                   <Link
                     key={link.href}
                     to={link.href}
+                    onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                     className={`group flex items-center gap-2 transition-colors ${
                       isDark
                         ? "text-white/50 hover:text-white"
@@ -110,6 +111,7 @@ const Footer = () => {
               <nav className="space-y-3">
                 <Link
                   to="/prodotti/sensori-livello-carburante"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`group flex items-center gap-2 transition-colors ${
                     isDark
                       ? "text-white/50 hover:text-white"
@@ -121,6 +123,7 @@ const Footer = () => {
                 </Link>
                 <Link
                   to="/prodotti/cablaggi-elettrici"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`group flex items-center gap-2 transition-colors ${
                     isDark
                       ? "text-white/50 hover:text-white"
@@ -132,6 +135,7 @@ const Footer = () => {
                 </Link>
                 <Link
                   to="/prodotti/quadri-elettrici"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`group flex items-center gap-2 transition-colors ${
                     isDark
                       ? "text-white/50 hover:text-white"
@@ -143,6 +147,7 @@ const Footer = () => {
                 </Link>
                 <Link
                   to="/prodotti/sonde-temperatura"
+                  onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
                   className={`group flex items-center gap-2 transition-colors ${
                     isDark
                       ? "text-white/50 hover:text-white"
