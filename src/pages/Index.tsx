@@ -161,7 +161,7 @@ const Index = () => {
           </div>
 
           {/* Hero Content */}
-          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-48">
+          <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10 pt-32 pb-64 md:pb-48">
             <div className="max-w-4xl">
               {/* Badge */}
               <div className="hero-title mb-5 flex">
@@ -211,7 +211,7 @@ const Index = () => {
           </div>
 
           {/* Scroll Indicator */}
-          <div className="absolute bottom-36 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2">
+          <div className="hidden md:flex absolute bottom-36 left-1/2 -translate-x-1/2 flex-col items-center gap-2">
             <span className="text-white/40 text-xs uppercase tracking-widest">Scroll</span>
             <div className="w-px h-16 bg-gradient-to-b from-white/40 to-transparent relative overflow-hidden">
               <div className="absolute top-0 left-0 w-full h-8 bg-white animate-[slideDown_1.5s_ease-in-out_infinite]" />
