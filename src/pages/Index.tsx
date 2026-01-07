@@ -304,8 +304,7 @@ const Index = () => {
               height={1080}
               className="w-full h-full object-cover"
             />
-            <div className="absolute inset-0 bg-primary/90" />
-            <div className="absolute inset-0 bg-gradient-to-r from-primary via-primary/80 to-accent/60" />
+            <div className="absolute inset-0 bg-gradient-to-r from-[#18008D]/60 via-[#6B0050]/60 to-[#EC000D]/60" />
           </div>
           <div className="absolute inset-0 flex items-center justify-center">
             <div className="text-center text-white px-4 max-w-5xl" data-animate="scale" data-delay="0">
