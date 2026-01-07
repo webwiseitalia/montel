@@ -186,25 +186,22 @@ const Index = () => {
               </div>
 
               {/* CTA Buttons */}
-              <div className="hero-title">
-                <div className="hero-title-inner hero-stagger-4 flex flex-col sm:flex-row flex-wrap gap-3 sm:gap-4">
+              <div className="hero-title mt-8">
+                <div className="hero-title-inner hero-stagger-4" style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', gap: '30px' }}>
                   <Link
                     to="/contatti"
-                    className="group relative inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-4 bg-white text-black font-bold text-xs sm:text-sm uppercase tracking-wider overflow-hidden transition-all duration-500 hover:shadow-[0_0_40px_rgba(255,255,255,0.3)]"
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', width: '220px', height: '56px', backgroundColor: 'white', color: 'black', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em', textDecoration: 'none', border: '2px solid white' }}
+                    className="group transition-all duration-300 hover:bg-primary hover:text-white hover:border-primary"
                   >
-                    <span className="relative z-10">Richiedi informazioni</span>
-                    <ArrowRight className="relative z-10 w-4 h-4 sm:w-5 sm:h-5 transition-transform duration-500 group-hover:translate-x-2" />
-                    <div className="absolute inset-0 bg-primary transform translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-                    <span className="absolute inset-0 flex items-center justify-center gap-3 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
-                      Richiedi informazioni
-                      <ArrowRight className="w-5 h-5" />
-                    </span>
+                    <span>Contattaci</span>
+                    <ArrowRight className="w-5 h-5" />
                   </Link>
-                  <button className="group inline-flex items-center justify-center gap-2 sm:gap-3 px-5 sm:px-6 md:px-8 py-3 sm:py-4 border-2 border-white/30 text-white font-bold text-xs sm:text-sm uppercase tracking-wider transition-all duration-500 hover:border-white/60 hover:bg-white/10 backdrop-blur-sm">
-                    <div className="relative w-8 h-8 sm:w-10 sm:h-10 flex items-center justify-center rounded-full border border-white/30 group-hover:border-white/60 transition-all duration-500 group-hover:scale-110">
-                      <Play className="w-3 h-3 sm:w-4 sm:h-4 ml-0.5" />
-                    </div>
-                    Video aziendale
+                  <button
+                    style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '12px', width: '220px', height: '56px', backgroundColor: 'transparent', color: 'white', fontWeight: 'bold', fontSize: '14px', textTransform: 'uppercase', letterSpacing: '0.05em', border: '2px solid rgba(255,255,255,0.5)' }}
+                    className="group transition-all duration-300 hover:border-white hover:bg-white/10"
+                  >
+                    <Play className="w-5 h-5" />
+                    <span>Video aziendale</span>
                   </button>
                 </div>
               </div>
